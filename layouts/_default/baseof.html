@@ -44,9 +44,15 @@
     <header class="l-header">
       <div class="l-container">
         <div class="h-logo p-logo">
-          <a href="{{ .Site.BaseURL }}" class="h-logo">{{ .Site.Title }}</a>
+          <a href="{{ "/" | absLangURL }}" class="h-logo">{{ .Site.Title }}</a>
         </div>
-      </div>
+        <nav class="p-nav">
+          <ul>
+            {{ range .Site.Menus.main }}
+            <li><a href="{{ .URL | absLangURL }}/">{{ .Name }}</a></li>
+            {{ end }}
+          </ul>
+        </nav>
     </header>
 
     <main>
@@ -68,4 +74,3 @@
     <a href="#" class="p-movetop" title="ページ上部へ戻る" rel="nofollow"></a>
   </body>
 </html>
-
