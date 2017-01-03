@@ -1,0 +1,3 @@
+<amp-twitter data-tweetid="{{ index .Params 0 }}" width="800" height="600" layout="responsive">
+  {{ replace (getJSON "https://api.twitter.com/1/statuses/oembed.json?omit_script=1&id=" (index .Params 0)).html "<blockquote" "<blockquote placeholder" | safeHTML }}
+</amp-twitter>
